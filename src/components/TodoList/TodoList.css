@@ -1,0 +1,30 @@
+.items-container{
+    width:80%;
+}
+.items{
+    display: flex;
+    background: #fff;
+    padding: 10px;
+    margin:10px;
+    border:none;
+    border-radius: 5px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .items:hover{
+    background: rgb(165, 213, 235);
+  }
+  .item-left{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .items .item-left p{
+    margin: 0;
+    margin-left: 5px;
+  }
+  
+.line-through{
+    text-decoration: line-through;
+    color:green;
+}
