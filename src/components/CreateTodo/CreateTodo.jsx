@@ -17,6 +17,7 @@ function CreateTodo() {
   let [isEditItem,setIsEditItem] = useState(null)
 
   const inputHandle =(e)=>{
+    console.log("call input handle");
     let obj={
       text:e.target.value,
       status:false
@@ -24,31 +25,39 @@ function CreateTodo() {
     setTodo(obj)  
   }
   
+  // ---------add a new item or edit an existing item----------------
   const addItem = (event) =>{
+    console.log("call add item");
     if(event.key === 'Enter' || event.target.id ==='addTodo' || event.target.id === 'editTodo'){
       if(todo.text !== ''){
-          if(toggleSubmit){          
+          if(toggleSubmit){    
+            console.log("Inside if case")      
             todoArr.unshift(todo)
             localStorage.setItem('todos',JSON.stringify(todoArr))
             setTodoArr(todoArr)           
             setTodo({text:"",status:false});
           }else{
-            setTodoArr(todoArr.map((item,key)=>{
-              if(key === isEditItem){
-                return(todo)
-              }
-              return item;
-            }))
-            setToggleSubmit(true)
+            setTodoArr(
+              todoArr.map((item,key)=>{
+                if(key === isEditItem){
+                  todoArr[isEditItem].text=todo.text
+                  return todoArr[isEditItem]
+                }
+                return item
+              })
+            )
+            localStorage.setItem('todos',JSON.stringify(todoArr))
             setTodo({text:"",status:false});
             setIsEditItem(null)
-          }
+            setToggleSubmit(true)
+          }          
       }else{
         sweetalert("Oops", "Please write todo first", "error")
       }
     }
   }
 
+  // -------mark completed item------------
   const checkedItem =(i) =>{
     if(todoArr[i].status !== true){
       todoArr[i].status = true
@@ -62,6 +71,7 @@ function CreateTodo() {
     }
   }
 
+  // --------delete item------------
   const deleteItem =(index)=>{
     sweetalert({
         title:"Are you sure?",
@@ -78,15 +88,17 @@ function CreateTodo() {
     })
   }
   
+  // -------------edit an item-----------------
 const editItem = (index) =>{
-    let findTodo = todoArr.find((todo,key)=>index===key)
+    let newEditItem = todoArr.find((todo,key)=>index===key)
     setToggleSubmit(false)
-    setTodo(findTodo);
-    setIsEditItem(index)
+    setTodo(newEditItem);
+    setIsEditItem(index)    
   }
   
+  // --------rendering-------------
   return (
-    <div className="app-content">
+    <div className="content-wraper"> 
             <div>
                 <h1>Todo App</h1>
             </div>
@@ -101,8 +113,10 @@ const editItem = (index) =>{
                     }            
                 </div>
             </div>
-            <TodoList todoArr={todoArr} checkedItem={checkedItem} 
+            <div className="app-content">
+              <TodoList todoArr={todoArr} checkedItem={checkedItem} 
                       deleteItem={deleteItem} editItem={editItem} />
+            </div>  
     </div>
     )
 }

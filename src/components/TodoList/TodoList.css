@@ -28,3 +28,30 @@
     text-decoration: line-through;
     color:green;
 }
+.list-buttons{
+  display: flex;
+  justify-content: space-between;
+  margin-top:5px;
+  margin-bottom:20px;
+}
+.list-buttons .button{
+  width:130px;
+  height: 35px;
+  margin:5px;
+  padding:5px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background: rgb(5, 240, 64);
+    font-weight: bold;
+}
+.list-buttons .button:hover, .button:focus{
+  background: rgb(177, 240, 5);
+}
+
+@media (max-width: 1090px){
+  .list-buttons .button{
+    width:100px;
+  }
+}
+
