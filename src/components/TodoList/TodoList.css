@@ -71,6 +71,9 @@
   .list-buttons .button{
     width:100px;
   }
+  .items-container{
+    width:100%;
+}
   .items{
     width:100%;
   }
