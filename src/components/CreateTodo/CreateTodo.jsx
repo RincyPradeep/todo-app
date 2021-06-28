@@ -102,7 +102,7 @@ const editItem = (index) =>{
             <div>
                 <h1>Todo App</h1>
             </div>
-            <div className="input-wraper">
+            <div className="input-wraper" data-aos="fade-left">
                 <div className="input">
                     <input value={todo.text} onKeyPress={addItem} onChange={(e)=>inputHandle(e)} type="text" placeholder="Add items..."/>
                     {
@@ -113,7 +113,7 @@ const editItem = (index) =>{
                     }            
                 </div>
             </div>
-            <div className="app-content">
+            <div className="app-content" data-aos="fade-right">
               <TodoList todoArr={todoArr} checkedItem={checkedItem} 
                       deleteItem={deleteItem} editItem={editItem} />
             </div>  
