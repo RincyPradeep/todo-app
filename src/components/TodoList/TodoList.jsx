@@ -81,11 +81,11 @@ function TodoList(props) {
     return (
         <div className="items-container">
           <div className="list-buttons">
-            <button className="button" onClick={displayActive}>Active</button>
-            <button className="button" onClick={displayAll} autoFocus>All</button>
-            <button className="button" onClick={displayCompleted}>Completed</button>            
+            <button className={category === "Active" ? "changebg button" : "button"} onClick={displayActive}>Active</button>
+            <button className={category === "All" ? "changebg button" : "button"} onClick={displayAll} autoFocus>All</button>
+            <button className={category === "Completed" ? "changebg button" : "button"} onClick={displayCompleted}>Completed</button>            
           </div>
-           
+          
              {category === 'All' && allItems}
              {category === 'Completed' && completedItems}
              {category === 'Active' && activeItems} 

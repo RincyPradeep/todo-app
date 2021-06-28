@@ -45,7 +45,10 @@
     background: rgb(5, 240, 64);
     font-weight: bold;
 }
-.list-buttons .button:hover, .button:focus{
+.list-buttons .button:hover{
+  background: rgb(177, 240, 5);
+}
+.list-buttons .changebg{
   background: rgb(177, 240, 5);
 }
 
