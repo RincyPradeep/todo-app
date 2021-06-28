@@ -85,11 +85,11 @@ function TodoList(props) {
             <button className={category === "All" ? "changebg button" : "button"} onClick={displayAll} autoFocus>All</button>
             <button className={category === "Completed" ? "changebg button" : "button"} onClick={displayCompleted}>Completed</button>            
           </div>
-          
+          <div className="app-content" data-aos="fade-right">
              {category === 'All' && allItems}
              {category === 'Completed' && completedItems}
              {category === 'Active' && activeItems} 
-              
+          </div>    
         </div>
     )
 }

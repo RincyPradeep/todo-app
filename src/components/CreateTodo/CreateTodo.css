@@ -12,7 +12,7 @@
   padding-top:50px;
   padding-bottom:50px;
 }
-.app-content{   
+/* .app-content{   
     width:700px;
     height:84vh;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -26,7 +26,7 @@
   }
   .app-content::-webkit-scrollbar{
     display: none;
-  }
+  } */
  
   .content-wraper h1{
     /* font-family: "Goblin One",cursive; */

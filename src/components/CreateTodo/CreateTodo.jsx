@@ -113,10 +113,10 @@ const editItem = (index) =>{
                     }            
                 </div>
             </div>
-            <div className="app-content" data-aos="fade-right">
+            
               <TodoList todoArr={todoArr} checkedItem={checkedItem} 
                       deleteItem={deleteItem} editItem={editItem} />
-            </div>  
+             
     </div>
     )
 }
